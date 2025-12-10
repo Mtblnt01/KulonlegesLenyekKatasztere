@@ -1,0 +1,15 @@
+<div class="login-container">
+  <h2>Bejelentkezés</h2>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+
+    <label>Jelszó</label>
+    <input type="password" formControlName="password" />
+
+    <button type="submit" [disabled]="form.invalid">Belépés</button>
+  </form>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+</div>

@@ -1,0 +1,23 @@
+<h2>Lény szerkesztése</h2>
+
+<div *ngIf="loading">Betöltés...</div>
+
+<form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <label>Név</label>
+  <input type="text" formControlName="name" />
+
+  <label>Kategória</label>
+  <input type="text" formControlName="category" />
+
+  <label>Leírás</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Új kép feltöltése (opcionális)</label>
+  <input type="file" (change)="onFileChange($event)" />
+
+  <button type="submit">Mentés</button>
+</form>
+
+<p *ngIf="success" class="success">Sikeresen mentve!</p>
+<p *ngIf="error" class="error">{{ error }}</p>

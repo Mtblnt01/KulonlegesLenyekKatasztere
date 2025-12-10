@@ -1,0 +1,18 @@
+<h2>Lény részletei</h2>
+
+<div *ngIf="loading">Betöltés...</div>
+
+<div *ngIf="!loading && creature">
+  <p><strong>ID:</strong> {{ creature.id }}</p>
+  <p><strong>Név:</strong> {{ creature.name }}</p>
+  <p><strong>Kategória:</strong> {{ creature.category }}</p>
+  <p><strong>Leírás:</strong> {{ creature.description }}</p>
+
+  <div *ngIf="creature.image">
+    <img [src]="creature.image" alt="Creature image" class="preview" />
+  </div>
+
+  <button (click)="edit()">Szerkesztés</button>
+  <button (click)="openGallery()">Galéria</button>
+  <button class="danger" (click)="delete()">Törlés</button>
+</div>

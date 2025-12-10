@@ -1,0 +1,21 @@
+<h2>Új lény létrehozása</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+  <label>Név</label>
+  <input type="text" formControlName="name" />
+
+  <label>Kategória</label>
+  <input type="text" formControlName="category" />
+
+  <label>Leírás</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Kép feltöltése (opcionális)</label>
+  <input type="file" (change)="onFileChange($event)" />
+
+  <button type="submit" [disabled]="form.invalid">Létrehozás</button>
+</form>
+
+<p *ngIf="success" class="success">Sikeresen létrehozva!</p>
+<p *ngIf="error" class="error">{{ error }}</p>

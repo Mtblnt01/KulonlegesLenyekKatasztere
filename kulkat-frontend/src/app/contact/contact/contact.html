@@ -1,0 +1,20 @@
+<h2>Kapcsolat</h2>
+
+<form (ngSubmit)="submit()" #contactForm="ngForm">
+
+  <label>Név</label>
+  <input type="text" name="name" [(ngModel)]="form.name" required />
+
+  <label>Email</label>
+  <input type="email" name="email" [(ngModel)]="form.email" required />
+
+  <label>Üzenet</label>
+  <textarea name="message" [(ngModel)]="form.message" required></textarea>
+
+  <button type="submit" [disabled]="contactForm.invalid">Küldés</button>
+
+</form>
+
+<div class="success" *ngIf="success">
+  Üzeneted sikeresen elküldtük!
+</div>

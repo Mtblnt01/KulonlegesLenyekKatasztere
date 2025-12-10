@@ -1,0 +1,26 @@
+<h2>Különleges lények listája</h2>
+
+<div *ngIf="loading">Betöltés...</div>
+
+<table *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Név</th>
+      <th>Kategória</th>
+      <th>Műveletek</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let creature of creatures">
+      <td>{{ creature.id }}</td>
+      <td>{{ creature.name }}</td>
+      <td>{{ creature.category }}</td>
+      <td>
+        <button (click)="view(creature.id)">Megnyitás</button>
+        <button (click)="edit(creature.id)">Szerkesztés</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
